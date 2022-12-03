@@ -56,17 +56,17 @@ void PWM_Disable() {
 }
 void Beep_Init()
 {
-#if Beep_Is_Src == 1
+#ifdef Beep_IS_SRC
     	gpio_set_direction(Beep_Pin_Num, GPIO_MODE_OUTPUT);
 #endif
 	if(beep_en==1) {
-#if Beep_Is_Src == 1
+#ifdef Beep_IS_SRC
 		gpio_set_level(Beep_Pin_Num, 1);
 #else
 		PWM_Enable();
 #endif
 		vTaskDelay(200 / portTICK_PERIOD_MS);
-#if Beep_Is_Src == 1
+#ifdef Beep_IS_SRC
 		gpio_set_level(Beep_Pin_Num, 0);
 #else
 		PWM_Disable();
@@ -95,13 +95,13 @@ void beep_on_off(uint8_t on_off)
 	//if(beep_en==0)
 	//	return ;
 	if(on_off&&beep_en){
-#if Beep_Is_Src == 1
+#ifdef Beep_IS_SRC
 		gpio_set_level(Beep_Pin_Num, 1);
 #else
 		PWM_Enable();
 #endif
 	} else {
-#if Beep_Is_Src == 1
+#ifdef Beep_IS_SRC
 		gpio_set_level(Beep_Pin_Num, 0);
 #else
 		PWM_Disable();

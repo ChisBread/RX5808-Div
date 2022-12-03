@@ -31,7 +31,7 @@ void page_start_create()
         lv_obj_set_style_text_font(start_info_label, &lv_font_start, LV_STATE_DEFAULT);
         lv_obj_set_style_text_color(start_info_label, lv_color_make(255, 255, 255), LV_STATE_DEFAULT);
         lv_label_set_recolor(start_info_label, true);
-        lv_label_set_text(start_info_label, "RX5808");
+        lv_label_set_text(start_info_label, START_LOGO);
 
         lv_obj_t* start_info_bar = lv_bar_create(page_start_contain);
         lv_obj_remove_style(start_info_bar, NULL, LV_PART_KNOB);

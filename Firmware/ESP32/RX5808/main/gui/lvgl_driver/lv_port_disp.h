@@ -17,6 +17,7 @@ extern "C" {
  *      INCLUDES
  *********************/
 #include "lvgl/lvgl.h"
+#include "hardware/hwvers.h"
 
 /*********************
  *      DEFINES
