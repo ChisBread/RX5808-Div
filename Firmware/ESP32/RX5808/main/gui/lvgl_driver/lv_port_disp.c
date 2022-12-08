@@ -50,6 +50,9 @@ bool get_video_switch(void) {
     return g_dac_video_render;
 }
 void IRAM_ATTR video_composite_switch(bool flag) {
+#ifdef DISABLE_OSD
+    return;
+#else
     g_dac_video_render = flag;
     if(g_dac_video_render) {
         // 暂停rx5808
@@ -65,6 +68,7 @@ void IRAM_ATTR video_composite_switch(bool flag) {
 	gpio_reset_pin(DAC_VIDEO_PIN);
     gpio_set_direction(DAC_VIDEO_PIN, GPIO_MODE_INPUT);/*  */
     RX5808_Resume();
+#endif
 }
 void video_composite_sync_switch(bool flag) {
     g_dac_video_sync = flag;

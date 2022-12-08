@@ -301,8 +301,7 @@ float Rx5808_Get_Precentage1()
 
 float Get_Battery_Voltage()
 {
-	//return (float)adc_converted_value[2]/4095*53.3375;
-    return (float)adc_converted_value[2]/4095*6.8;
+    return (float)adc_converted_value[2]/4095*VBAT_RATE;
 }
 
 
