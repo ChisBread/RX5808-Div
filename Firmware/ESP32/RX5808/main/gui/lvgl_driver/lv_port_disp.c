@@ -58,7 +58,11 @@ void IRAM_ATTR video_composite_switch(bool flag) {
         // 暂停rx5808
         RX5808_Pause();
         // 注册A/V信号输出
+#ifdef OSD_NTSC
+        esp32_video_start(1);
+#else
         esp32_video_start(0);
+#endif
         refresh_times = 1;
 	    gpio_set_level(DAC_VIDEO_SWITCH, SWITCH_DAC);
         return;

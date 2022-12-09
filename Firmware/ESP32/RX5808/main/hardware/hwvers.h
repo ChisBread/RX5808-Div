@@ -40,4 +40,5 @@
 #define REVERS_GPIO19
 #define START_LOGO "RX5808"
 //#define DISABLE_OSD
+//#define OSD_NTSC
 #endif
